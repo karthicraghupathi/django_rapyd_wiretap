@@ -7,7 +7,7 @@ from setuptools import find_packages, setup
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-with open("README.md") as f:
+with open("README.rst") as f:
     readme = f.read()
 
 with open("LICENSE") as f:
@@ -22,11 +22,11 @@ setup(
     author_email="karthicr@gmail.com",
     url="https://github.com/karthicraghupathi/django_rapyd_wiretap_project",
     license=license,
-    package_dir={"": "django_rapyd_wiretap"},
+    package_dir={"": "src"},
     packages=[
         "wiretap",
     ],
-    install_requires=["django >= 3, < 3.3"],
+    install_requires=["django>=3,<3.3"],
     classifiers=[
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Apache Software License",

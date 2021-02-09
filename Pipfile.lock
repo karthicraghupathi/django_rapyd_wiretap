@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cb6cf4ee71dd7f99570843b7b805a7e02792fdd3c19f06f1c2828b6fed9b54b5"
+            "sha256": "88b081f3d95bdddcaa343460a4354029881944395a3ec95a34a1474719aac606"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,20 +39,12 @@
             "index": "pypi",
             "version": "==3.1.6"
         },
-        "django-appconf": {
+        "django-rapyd-wiretap": {
             "hashes": [
-                "sha256:1b1d0e1069c843ebe8ae5aa48ec52403b1440402b320c3e3a206a0907e97bb06",
-                "sha256:be58deb54a43d77d2e1621fe59f787681376d3cd0b8bd8e4758ef6c3a6453380"
+                "sha256:268a5f5d7a9ac1a97e8232e415af9bb64525dd653774f60f8fba59dbb885dd1d"
             ],
-            "version": "==1.0.4"
-        },
-        "django-read-only-admin": {
-            "hashes": [
-                "sha256:681eece67b9bec6f3d67e6b9c09a6799745ccf2eae530a5e2a205e74665956e4",
-                "sha256:b3c3dbd001ccd416f50d5331d2040e1c821218dd87a6ea61a0955b55c4014d2a"
-            ],
-            "index": "pypi",
-            "version": "==0.14.14"
+            "path": "./dist/django-rapyd-wiretap-0.0.1.tar.gz",
+            "version": "==0.0.1"
         },
         "python-dotenv": {
             "extras": [
