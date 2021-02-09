@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7a41494248b744efa0e755185131f49c6767171afbd4439de98526a55158c29b"
+            "sha256": "62982e2e2e016ec329906ad242e58af44ff724b0111e9b2c44198549a8b7049a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -41,10 +41,10 @@
         },
         "django-rapyd-wiretap": {
             "hashes": [
-                "sha256:e74db1af7d4bbe23abff91897c4fbda428d007a5d0d0a60d185062498bea067d"
+                "sha256:7386e2600197a9eaae6aa800ada83e9d83c7d0dc23bbf240a3813b64a9b2895d"
             ],
-            "path": "./dist/django-rapyd-wiretap-0.0.2.tar.gz",
-            "version": "==0.0.2"
+            "path": "./dist/django-rapyd-wiretap-0.0.3.tar.gz",
+            "version": "==0.0.3"
         },
         "python-dotenv": {
             "extras": [

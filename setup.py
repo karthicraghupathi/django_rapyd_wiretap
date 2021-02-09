@@ -15,7 +15,7 @@ with open("LICENSE") as f:
 
 setup(
     name="django-rapyd-wiretap",
-    version="0.0.2",
+    version="0.0.3",
     description="Logs requests and responses to your application in a DB for auditing or troubleshooting purposes.",
     long_description=readme,
     author="Karthic Raghupathi",
@@ -23,9 +23,7 @@ setup(
     url="https://github.com/karthicraghupathi/django_rapyd_wiretap_project",
     license=license,
     package_dir={"": "src"},
-    packages=[
-        "wiretap",
-    ],
+    packages=["wiretap", "wiretap.migrations"],
     install_requires=["django>=3,<3.3"],
     classifiers=[
         "Intended Audience :: Developers",
