@@ -24,7 +24,6 @@ Usage
 - Edit Django settings:
 
   - Add ``wiretap`` to ``INSTALLED_APPS``.
-  - Add ``read_only_admin`` to ``INSTALLED_APPS``.
   - Add ``wiretap.middleware.WiretapMiddleware`` to your ``MIDDLEWARE_CLASSES``.
 
 - Create models with:

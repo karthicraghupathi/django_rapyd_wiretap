@@ -15,7 +15,7 @@ with open("LICENSE") as f:
 
 setup(
     name="django-rapyd-wiretap",
-    version="0.0.1",
+    version="0.0.2",
     description="Logs requests and responses to your application in a DB for auditing or troubleshooting purposes.",
     long_description=readme,
     author="Karthic Raghupathi",
