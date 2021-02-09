@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = ">=3.1.6,<3.3"
 python-dotenv = { extras=["cli"], version="*" }
+django-read-only-admin = "*"
 
 [dev-packages]
 pre-commit = "*"

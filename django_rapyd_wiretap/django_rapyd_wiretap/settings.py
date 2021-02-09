@@ -100,6 +100,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "read_only_admin",
+    "wiretap",
 ]
 
 MIDDLEWARE = [
@@ -110,9 +112,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wiretap.middleware.WiretapMiddleware",
 ]
 
-ROOT_URLCONF = "django_boilerplate.urls"
+ROOT_URLCONF = "django_rapyd_wiretap.urls"
 
 TEMPLATES = [
     {
@@ -130,7 +133,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "django_boilerplate.wsgi.application"
+WSGI_APPLICATION = "django_rapyd_wiretap.wsgi.application"
 
 
 # Database
