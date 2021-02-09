@@ -1,9 +1,12 @@
 import json
+import logging
 import re
 
 from django.utils import timezone
 
 from .models import Message, Tap
+
+logger = logging.getLogger(__name__)
 
 
 def is_json_serializable(obj):
@@ -53,9 +56,14 @@ class WiretapMiddleware:
         """
         Returns true if we should store the request/response.
         """
-        for tap in Tap.objects.filter(is_active=True):
-            if re.search(tap.path, request.path):
-                return True
+        try:
+            for tap in Tap.objects.filter(is_active=True):
+                if re.search(tap.path, request.path):
+                    return True
+        except Exception:
+            logger.exception(
+                "Error occurred while fetching taps. No messages will be tapped."
+            )
         return False
 
     def _log_request(self, request):
@@ -81,6 +89,8 @@ class WiretapMiddleware:
                 request.wiretap_message.request_body_pretty = self._prettify(
                     content_type, request.body
                 )
+        except Exception:
+            logger.exception("Error occurred while logging request.")
         finally:
             request.wiretap_message.save()
 
@@ -108,6 +118,8 @@ class WiretapMiddleware:
                 request.wiretap_message.response_body_pretty = self._prettify(
                     content_type, response.content
                 )
+        except Exception:
+            logger.exception("Error occurred while logging response.")
         finally:
             request.wiretap_message.save()
 

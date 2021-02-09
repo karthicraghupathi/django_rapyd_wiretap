@@ -11,6 +11,7 @@ django-read-only-admin = "*"
 [dev-packages]
 pre-commit = "*"
 rope = "*"
+tox = "*"
 
 [requires]
 python_version = "3.6"

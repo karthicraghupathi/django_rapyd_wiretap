@@ -1,5 +1,4 @@
 from django.contrib import admin
-from read_only_admin.admin import ReadonlyAdmin
 
 from .models import Message, Tap
 
@@ -11,6 +10,7 @@ class TapAdmin(admin.ModelAdmin):
     ordering = ("path",)
 
 
+# TODO Make this admin read only
 class MessageAdmin(admin.ModelAdmin):
     list_display = (
         "request_path",

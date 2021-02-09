@@ -76,7 +76,8 @@ sys.excepthook = handle_exception
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = BASE_DIR.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -100,7 +101,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "read_only_admin",
     "wiretap",
 ]
 
@@ -142,7 +142,7 @@ WSGI_APPLICATION = "django_rapyd_wiretap.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "django_rapyd_wiretap" / "db.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -185,4 +185,4 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = PROJECT_DIR / "static"
