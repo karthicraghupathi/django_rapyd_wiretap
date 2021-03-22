@@ -25,13 +25,12 @@ class WiretapTestCase(TestCase):
         self.mock.side_effect = [
             Mock(
                 name="response",
-                _headers=dict(),
+                items=dict().items,
                 status_code=200,
                 reason_phrase="OK",
                 content=b"",
             )
         ]
-        # mock._headers.return_value = dict()
         self.wiretap_middleware(self.request_factory.get("/test"))
         self.assertEqual(Message.objects.count(), 1)
 
