@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 django = ">=3.1.6,<3.3"
 python-dotenv = {extras=["cli"], version="*"}
-django-rapyd-wiretap = {path = "./dist/django-rapyd-wiretap-0.0.3.tar.gz"}
 
 [dev-packages]
 pre-commit = "*"
