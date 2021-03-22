@@ -87,7 +87,7 @@ class WiretapMiddleware:
             if request.body:
                 content_type = request.META.get("CONTENT_TYPE", "")
                 request.wiretap_message.request_body_pretty = self._prettify(
-                    content_type, request.body
+                    content_type, request.body.decode("utf-8")
                 )
         except Exception:
             logger.exception("Error occurred while logging request.")
@@ -106,7 +106,7 @@ class WiretapMiddleware:
             request.wiretap_message.response_status_code = response.status_code
             request.wiretap_message.response_reason_phrase = response.reason_phrase
             headers = dict()
-            for (key, value) in response._headers.items():
+            for (key, value) in response.items():
                 if is_json_serializable(key) and is_json_serializable(value):
                     headers[key] = value
             request.wiretap_message.response_headers_json = json.dumps(
@@ -114,9 +114,9 @@ class WiretapMiddleware:
             )
             request.wiretap_message.response_body_raw = response.content.decode("utf-8")
             if response.content:
-                content_type = response._headers.get("Content-Type", "")
+                content_type = response.get("Content-Type", "")
                 request.wiretap_message.response_body_pretty = self._prettify(
-                    content_type, response.content
+                    content_type, response.content.decode("utf-8")
                 )
         except Exception:
             logger.exception("Error occurred while logging response.")
@@ -131,8 +131,8 @@ class WiretapMiddleware:
         if content_type:
             try:
                 if "json" in content_type:
-                    result = json.loads(content.decode("utf-8"))
-                    result = json.dumps(result, indent=2).encode("utf-8")
+                    result = json.loads(content)
+                    result = json.dumps(result, indent=2)
             except Exception:
                 pass  # do nothing
         return result
