@@ -4,13 +4,11 @@ import os
 import sys
 
 # set the Django root folder here
-APP_DIR = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), "django_rapyd_wiretap"
-)
+APP_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), "testproject")
 sys.path.insert(0, APP_DIR)
 
 # specify the django settings module
-os.environ["DJANGO_SETTINGS_MODULE"] = "django_rapyd_wiretap.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "testproject.settings"
 
 
 def main():

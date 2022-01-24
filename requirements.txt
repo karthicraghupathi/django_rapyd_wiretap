@@ -6,10 +6,14 @@
 #
 
 -i https://pypi.org/simple
-./dist/django-rapyd-wiretap-0.0.3.tar.gz
-asgiref==3.3.1; python_version >= '3.5'
-click==7.1.2
-django==3.1.6
-python-dotenv[cli]==0.15.0
-pytz==2021.1
-sqlparse==0.4.1; python_version >= '3.5'
+-e ./../django_rapyd_wiretap
+asgiref==3.4.1; python_version >= '3.6'
+click==8.0.3
+django==3.2.11
+importlib-metadata==4.8.3; python_version < '3.8'
+python-dotenv[cli]==0.19.2
+pytz==2021.3
+setuptools==59.6.0; python_version >= '3.6'
+sqlparse==0.4.2; python_version >= '3.5'
+typing-extensions==4.0.1; python_version < '3.8'
+zipp==3.6.0; python_version >= '3.6'

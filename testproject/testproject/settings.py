@@ -1,5 +1,5 @@
 """
-Django settings for django_rapyd_wiretap project.
+Django settings for testproject project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -25,13 +25,6 @@ PROJECT_NAME = "Django Rapyd Wiretap"
 
 # Logging setup
 
-# Add new TRACE logging level
-logging.TRACE = 5
-logging.addLevelName(logging.TRACE, "TRACE")
-logging.Logger.trace = partialmethod(logging.Logger.log, logging.TRACE)
-logging.trace = partial(logging.log, logging.TRACE)
-
-# Configure logging
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -46,18 +39,18 @@ LOGGING = {
         },
         "null": {"class": "logging.NullHandler"},
     },
-    "loggers": {"": {"handlers": ["console"], "level": "TRACE"}},
+    "loggers": {"": {"handlers": ["console"], "level": "INFO"}},
     "django": {
         "handlers": ["console"],
-        "level": "TRACE",
+        "level": "INFO",
     },
     "django.server": {
         "handlers": ["null"],
-        "level": "TRACE",
+        "level": "INFO",
         "propagate": False,
     },
 }
-logger = logging.getLogger("django_rapyd_wiretap")
+logger = logging.getLogger("testproject")
 
 
 # Define the exception handler for unhandled exceptions
@@ -115,7 +108,7 @@ MIDDLEWARE = [
     "wiretap.middleware.WiretapMiddleware",
 ]
 
-ROOT_URLCONF = "django_rapyd_wiretap.urls"
+ROOT_URLCONF = "testproject.urls"
 
 TEMPLATES = [
     {
@@ -133,7 +126,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "django_rapyd_wiretap.wsgi.application"
+WSGI_APPLICATION = "testproject.wsgi.application"
 
 
 # Database
@@ -142,7 +135,7 @@ WSGI_APPLICATION = "django_rapyd_wiretap.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": PROJECT_DIR / "db.sqlite3",
+        "NAME": ":memory:",
     }
 }
 

@@ -6,11 +6,14 @@ name = "pypi"
 [packages]
 django = ">=3.1.6,<3.3"
 python-dotenv = {extras=["cli"], version="*"}
+django-rapyd-wiretap = {editable = true, path = "./../django_rapyd_wiretap"}
 
 [dev-packages]
 pre-commit = "*"
 rope = "*"
 tox = "*"
+tox-asdf = "*"
+bump2version = "*"
 
 [requires]
 python_version = "3.6"
