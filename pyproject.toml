@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "django-rapyd-wiretap"
 dynamic = ["version"]
 description = "A Django application that logs requests and responses to your project for auditing or troubleshooting purposes."
-readme = "readme.md"
+readme = "README.md"
 license = "Apache-2.0"
 authors = [
     { name = "Karthic Raghupathi", email = "karthicr@gmail.com" },
