@@ -1,17 +1,17 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 default_language_version:
   python: python3
+
 exclude: |
   (?x)(
     migrations/|
-    .idea/|
+    \.idea/|
     venv/|
-    .git/
+    \.git/
   )
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-json
@@ -20,19 +20,19 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
-  - repo: https://github.com/pycqa/isort
-    rev: 5.5.3
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.12
     hooks:
-      - id: isort
-  - repo: https://github.com/psf/black
-    rev: 20.8b1
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
     hooks:
-      - id: black
-  - repo: https://github.com/PyCQA/flake8
-    rev: 3.8.3
-    hooks:
-      - id: flake8
-  - repo: https://github.com/d-ryzhikov/pipenv-lock-pre-commit
-    rev: 0.1.0
-    hooks:
-    - id: pipenv-lock
+      - id: mypy
+        additional_dependencies:
+          - django-stubs[compatible-mypy]
+          - django
+          - python-dotenv

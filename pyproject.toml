@@ -91,4 +91,3 @@ tag = true
 
 [[tool.bumpversion.files]]
 filename = "wiretap/__init__.py"
-

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import logging
 import os
 import sys
-from functools import partial, partialmethod
 from pathlib import Path
 
 from dotenv import find_dotenv, load_dotenv
@@ -82,7 +81,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-default-for-local-dev-a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
 
 # Application definition
