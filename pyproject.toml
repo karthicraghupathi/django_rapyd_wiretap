@@ -96,6 +96,22 @@ tag = true
 [[tool.bumpversion.files]]
 filename = "wiretap/__init__.py"
 
+# CHANGELOG.md release-prep: rename the [Unreleased] heading, insert a dated
+# heading for the new version below, and add the matching link reference at
+# the bottom of the file. Saves doing this by hand each release.
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "## [Unreleased]"
+replace = """## [Unreleased]
+
+## [{new_version}] - {now:%Y-%m-%d}"""
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "[Unreleased]: https://github.com/karthicraghupathi/django_rapyd_wiretap/compare/v{current_version}...HEAD"
+replace = """[Unreleased]: https://github.com/karthicraghupathi/django_rapyd_wiretap/compare/v{new_version}...HEAD
+[{new_version}]: https://github.com/karthicraghupathi/django_rapyd_wiretap/releases/tag/v{new_version}"""
+
 [tool.pytest.ini_options]
 pythonpath = ["testproject"]
 DJANGO_SETTINGS_MODULE = "testproject.settings"

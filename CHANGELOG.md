@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Internal
+
+- `bump-my-version` now updates `CHANGELOG.md` automatically on each release:
+  inserts the new `## [X.Y.Z] - YYYY-MM-DD` heading below `## [Unreleased]`,
+  bumps the `[Unreleased]` link-reference comparison range, and inserts a new
+  `[X.Y.Z]: ...releases/tag/vX.Y.Z` link reference. Maintainers no longer need
+  to do this by hand.
+
 ## [0.2.0] - 2026-05-09
 
 ### Added
