@@ -38,6 +38,7 @@ dev = [
     "tox>=4",
     "tox-uv",
     "python-dotenv",
+    "ruff",
     "mypy",
     "django-stubs[compatible-mypy]",
     "pytest",
@@ -99,3 +100,4 @@ filename = "wiretap/__init__.py"
 pythonpath = ["testproject"]
 DJANGO_SETTINGS_MODULE = "testproject.settings"
 addopts = "-ra --strict-markers"
+

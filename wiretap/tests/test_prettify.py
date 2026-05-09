@@ -1,4 +1,5 @@
 import json
+from unittest.mock import Mock
 
 import pytest
 
@@ -7,7 +8,7 @@ from wiretap.middleware import WiretapMiddleware
 
 @pytest.fixture()
 def prettify():
-    mw = WiretapMiddleware(lambda r: r)
+    mw = WiretapMiddleware(Mock())
     return mw._prettify
 
 
