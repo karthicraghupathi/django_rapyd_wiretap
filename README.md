@@ -3,7 +3,7 @@
 [![Tests](https://github.com/karthicraghupathi/django_rapyd_wiretap/actions/workflows/test.yml/badge.svg)](https://github.com/karthicraghupathi/django_rapyd_wiretap/actions/workflows/test.yml)
 [![PyPI version](https://img.shields.io/pypi/v/django-rapyd-wiretap)](https://pypi.org/project/django-rapyd-wiretap/)
 [![Python versions](https://img.shields.io/pypi/pyversions/django-rapyd-wiretap)](https://pypi.org/project/django-rapyd-wiretap/)
-[![Django versions](https://img.shields.io/pypi/frameworkversions/django/django-rapyd-wiretap)](https://pypi.org/project/django-rapyd-wiretap/)
+[![Django versions](https://img.shields.io/pypi/djversions/django-rapyd-wiretap)](https://pypi.org/project/django-rapyd-wiretap/)
 [![License](https://img.shields.io/pypi/l/django-rapyd-wiretap)](https://github.com/karthicraghupathi/django_rapyd_wiretap/blob/main/LICENSE)
 
 A Django middleware that logs HTTP requests and responses to your database for auditing or troubleshooting purposes. Unlike similar packages, it works in **production** — logging is not gated on `settings.DEBUG`.
@@ -12,35 +12,35 @@ Inspired by [nathforge/django-wiretap](https://github.com/nathforge/django-wiret
 
 ## Install
 
-\`\`\`bash
+```bash
 pip install django-rapyd-wiretap
-\`\`\`
+```
 
 ## Quickstart
 
 1. Add `wiretap` to `INSTALLED_APPS`:
 
-   \`\`\`python
+   ```python
    INSTALLED_APPS = [
        ...
        "wiretap",
    ]
-   \`\`\`
+   ```
 
 2. Add the middleware to `MIDDLEWARE`:
 
-   \`\`\`python
+   ```python
    MIDDLEWARE = [
        ...
        "wiretap.middleware.WiretapMiddleware",
    ]
-   \`\`\`
+   ```
 
 3. Apply migrations:
 
-   \`\`\`bash
+   ```bash
    python manage.py migrate
-   \`\`\`
+   ```
 
 ## Usage
 
