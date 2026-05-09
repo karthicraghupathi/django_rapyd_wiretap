@@ -51,6 +51,25 @@ path = "wiretap/__init__.py"
 [tool.hatch.build.targets.wheel]
 packages = ["wiretap"]
 
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "DJ"]
+ignore = [
+    "E501",  # line too long — handled by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"wiretap/migrations/*.py" = ["E501"]
+# null=True on text fields is intentional: NULL = body not captured, "" = captured empty body
+"wiretap/models.py" = ["DJ001"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
 [tool.bumpversion]
 current_version = "0.0.5"
 commit = true
@@ -59,18 +78,3 @@ tag = true
 [[tool.bumpversion.files]]
 filename = "wiretap/__init__.py"
 
-[tool.black]
-include = '\.pyi?$'
-exclude = '''
-/(
-  \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''

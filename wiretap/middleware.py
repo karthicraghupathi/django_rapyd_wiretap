@@ -77,7 +77,7 @@ class WiretapMiddleware:
             request.wiretap_message.request_method = request.method
             request.wiretap_message.request_path = request.path
             headers = dict()
-            for (key, value) in request.headers.items():
+            for key, value in request.headers.items():
                 if is_json_serializable(key) and is_json_serializable(value):
                     if key.startswith("HTTP_"):
                         headers[key[5:]] = value
@@ -106,7 +106,7 @@ class WiretapMiddleware:
             request.wiretap_message.response_status_code = response.status_code
             request.wiretap_message.response_reason_phrase = response.reason_phrase
             headers = dict()
-            for (key, value) in response.items():
+            for key, value in response.items():
                 if is_json_serializable(key) and is_json_serializable(value):
                     headers[key] = value
             request.wiretap_message.response_headers_json = json.dumps(

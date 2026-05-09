@@ -3,7 +3,7 @@ import json
 from django.db import models
 
 
-class _NotSet(object):
+class _NotSet:
     pass
 
 
@@ -40,6 +40,9 @@ class Message(models.Model):
     response_body_raw = models.TextField(null=True, blank=True)
     response_body_pretty = models.TextField(null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.request_method} {self.request_path}"
+
     @property
     def request_headers(self):
         return json.loads(self.request_headers_json)
@@ -60,9 +63,6 @@ class Message(models.Model):
             return next(value for (key, value) in headers if key == search_key)
         except StopIteration:
             if default is _NotSet:
-                raise KeyError(search_key)
+                raise KeyError(search_key) from None
             else:
                 return default
-
-    def __str__(self):
-        return "{} {}".format(self.request_method, self.request_path)
