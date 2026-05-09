@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-05-09
+
 ### Added
 
 - `wiretap_prune` management command for retention. Run
@@ -28,6 +30,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `WiretapMiddleware._log_request` left over from when the header loop iterated
   `request.META`. The check never fires today, since `request.headers.items()`
   exposes headers in their HTTP form.
+- README rendering on the GitHub project page: the Install and Quickstart code
+  blocks had backslash-escaped triple-backticks (leftover from the original
+  heredoc-generated rewrite) that GitHub rendered as literal text, collapsing
+  each fenced block onto a single line. Replaced with literal triple-backticks.
+- Django versions badge: switched from a nonexistent shields.io endpoint
+  (`pypi/frameworkversions/django/...`) to the documented `pypi/djversions/...`,
+  so the badge now shows `4.2 | 5.2` instead of "Django versions are missing".
 
 ### Internal
 
