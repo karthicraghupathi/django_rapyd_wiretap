@@ -11,13 +11,12 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import logging
 import os
 import sys
-from functools import partial, partialmethod
 from pathlib import Path
 
 from dotenv import find_dotenv, load_dotenv
 
-# Load environment variables from the .env file
-load_dotenv(find_dotenv(filename=".env", raise_error_if_not_found=True, usecwd=False))
+# Load environment variables from .env if present (not required in CI/type-checking)
+load_dotenv(find_dotenv(filename=".env", raise_error_if_not_found=False, usecwd=False))
 
 # Setup default variables
 PROJECT_NAME = "Django Rapyd Wiretap"
@@ -77,12 +76,12 @@ PROJECT_DIR = BASE_DIR.parent
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-default-for-local-dev-and-ci")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
 
 # Application definition

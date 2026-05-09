@@ -1,15 +1,102 @@
-[tool.black]
-include = '\.pyi?$'
-exclude = '''
-/(
-  \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-rapyd-wiretap"
+dynamic = ["version"]
+description = "A Django application that logs requests and responses to your project for auditing or troubleshooting purposes."
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    { name = "Karthic Raghupathi", email = "karthicr@gmail.com" },
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.10"
+dependencies = ["Django>=4.2,<5.3"]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "bump-my-version",
+    "tox>=4",
+    "tox-uv",
+    "python-dotenv",
+    "ruff",
+    "mypy",
+    "django-stubs[compatible-mypy]",
+    "pytest",
+    "pytest-django",
+    "pytest-cov",
+]
+
+[project.urls]
+Homepage = "https://github.com/karthicraghupathi/django_rapyd_wiretap"
+Repository = "https://github.com/karthicraghupathi/django_rapyd_wiretap"
+Issues = "https://github.com/karthicraghupathi/django_rapyd_wiretap/issues"
+
+[tool.hatch.version]
+path = "wiretap/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["wiretap"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "DJ"]
+ignore = [
+    "E501",  # line too long — handled by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"wiretap/migrations/*.py" = ["E501"]
+# null=True on text fields is intentional: NULL = body not captured, "" = captured empty body
+"wiretap/models.py" = ["DJ001"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "testproject"
+plugins = ["mypy_django_plugin.main"]
+warn_unused_ignores = true
+warn_redundant_casts = true
+check_untyped_defs = true
+no_implicit_optional = true
+
+[tool.django-stubs]
+django_settings_module = "testproject.settings"
+
+[tool.bumpversion]
+current_version = "0.0.5"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "wiretap/__init__.py"
+
+[tool.pytest.ini_options]
+pythonpath = ["testproject"]
+DJANGO_SETTINGS_MODULE = "testproject.settings"
+addopts = "-ra --strict-markers"

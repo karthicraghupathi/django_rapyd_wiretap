@@ -1,4 +1,7 @@
+from typing import Any
+
 from django.contrib import admin
+from django.http import HttpRequest
 
 from .models import Message, Tap
 
@@ -10,7 +13,6 @@ class TapAdmin(admin.ModelAdmin):
     ordering = ("path",)
 
 
-# TODO Make this admin read only
 class MessageAdmin(admin.ModelAdmin):
     list_display = (
         "request_path",
@@ -30,6 +32,15 @@ class MessageAdmin(admin.ModelAdmin):
         "request_path",
     )
     ordering = ("-id",)
+
+    def has_add_permission(self, request: HttpRequest) -> bool:
+        return False
+
+    def has_change_permission(self, request: HttpRequest, obj: Any = None) -> bool:
+        return False
+
+    def has_delete_permission(self, request: HttpRequest, obj: Any = None) -> bool:
+        return False
 
 
 admin.site.register(Tap, TapAdmin)
