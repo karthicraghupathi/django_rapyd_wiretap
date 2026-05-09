@@ -100,4 +100,3 @@ filename = "wiretap/__init__.py"
 pythonpath = ["testproject"]
 DJANGO_SETTINGS_MODULE = "testproject.settings"
 addopts = "-ra --strict-markers"
-
