@@ -89,7 +89,7 @@ no_implicit_optional = true
 django_settings_module = "testproject.settings"
 
 [tool.bumpversion]
-current_version = "0.0.5"
+current_version = "0.1.0"
 commit = true
 tag = true
 
