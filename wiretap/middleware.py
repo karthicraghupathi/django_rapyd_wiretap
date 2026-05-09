@@ -39,6 +39,8 @@ class WiretapMiddleware:
         return response
 
     def _should_tap(self, request: HttpRequest) -> bool:
+        # Per-request regex recompile is intentional; if profiling shows
+        # this hot, cache with invalidation on Tap save signals.
         try:
             for tap in Tap.objects.filter(is_active=True):
                 if re.search(tap.path, request.path):
