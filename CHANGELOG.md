@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions workflows: test matrix (Python 3.10–3.13 × Django 4.2/5.2), lint, build
   smoke test, OIDC PyPI publish, and automated GitHub Releases.
 - Dependabot config for pip, github-actions, and pre-commit ecosystems.
-- Pytest test suite (33 tests): middleware, models, admin, `_prettify`, `is_json_serializable`.
+- Pytest test suite (34 tests): middleware, models, admin, `_prettify`, `is_json_serializable`.
 - `CONTRIBUTING.md`, `SECURITY.md`, and this `CHANGELOG.md`.
 - `bump-my-version` replaces the unmaintained `bump2version`.
 - Ruff replaces flake8 / isort / black.
