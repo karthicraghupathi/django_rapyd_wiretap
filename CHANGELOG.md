@@ -75,5 +75,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `setup.py`, `setup.cfg`, `Pipfile`, `requirements.txt` — replaced by `pyproject.toml` + `uv`.
 - `testrunner.py` — replaced by `pytest`.
 
-[Unreleased]: https://github.com/karthicraghupathi/django_rapyd_wiretap/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/karthicraghupathi/django_rapyd_wiretap/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/karthicraghupathi/django_rapyd_wiretap/releases/tag/v0.2.0
 [0.1.0]: https://github.com/karthicraghupathi/django_rapyd_wiretap/releases/tag/v0.1.0
