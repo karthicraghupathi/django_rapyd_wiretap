@@ -40,6 +40,9 @@ dev = [
     "python-dotenv",
     "mypy",
     "django-stubs[compatible-mypy]",
+    "pytest",
+    "pytest-django",
+    "pytest-cov",
 ]
 
 [project.urls]
@@ -91,3 +94,8 @@ tag = true
 
 [[tool.bumpversion.files]]
 filename = "wiretap/__init__.py"
+
+[tool.pytest.ini_options]
+pythonpath = ["testproject"]
+DJANGO_SETTINGS_MODULE = "testproject.settings"
+addopts = "-ra --strict-markers"
