@@ -59,8 +59,6 @@ class WiretapMiddleware:
             headers: dict[str, str] = {}
             for key, value in request.headers.items():
                 if is_json_serializable(key) and is_json_serializable(value):
-                    if key.startswith("HTTP_"):
-                        headers[key[5:]] = value
                     headers[key] = value
             message.request_headers_json = json.dumps(headers, indent=2)
             message.request_body_raw = request.body.decode("utf-8")
