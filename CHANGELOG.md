@@ -7,11 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `wiretap_prune` management command for retention. Run
+  `python manage.py wiretap_prune --older-than-days 30` (or `--dry-run` to preview)
+  to bulk-delete old `Message` rows by `started_at`.
+- README sections on Tap recipes, reading captured `Message` fields, middleware
+  ordering, indexed fields, and sensitive-data caveats. Pointer to the redaction
+  enhancement tracked in [issue #10](https://github.com/karthicraghupathi/django_rapyd_wiretap/issues/10).
+
 ### Changed
 
 - `publish.yml` now triggers on `push.tags: ['v*']` instead of `release.published`,
   so the auto-publish workflow fires reliably from a tag push without depending on
   GitHub's `GITHUB_TOKEN`-anti-recursion-blocked release event chain.
+
+### Fixed
+
+- Removed an unreachable `HTTP_`-prefix-stripping branch in
+  `WiretapMiddleware._log_request` left over from when the header loop iterated
+  `request.META`. The check never fires today, since `request.headers.items()`
+  exposes headers in their HTTP form.
+
+### Internal
+
+- Whole-package test coverage at 100% (44 tests). Middleware coverage 85% → 100%
+  with new tests for body capture (JSON request/response), the tap-query exception
+  path, and the request- and response-logging exception paths.
 
 ## [0.1.0] - 2026-05-09
 
