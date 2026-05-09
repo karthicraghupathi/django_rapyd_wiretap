@@ -74,6 +74,8 @@ indent-style = "space"
 
 [tool.mypy]
 python_version = "3.10"
+mypy_path = "testproject"
+plugins = ["mypy_django_plugin.main"]
 warn_unused_ignores = true
 warn_redundant_casts = true
 check_untyped_defs = true
