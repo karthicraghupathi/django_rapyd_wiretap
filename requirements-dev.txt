@@ -165,7 +165,7 @@ tox-uv==1.35.2
     # via django-rapyd-wiretap
 tox-uv-bare==1.35.2
     # via tox-uv
-types-pyyaml==6.0.12.20260508
+types-pyyaml==6.0.12.20260510
     # via django-stubs
 typing-extensions==4.15.0
     # via
